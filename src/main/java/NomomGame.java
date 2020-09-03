@@ -14,16 +14,18 @@ public class NomomGame extends Canvas implements Runnable {
     private HUD hud;
 
     public NomomGame() {
+        Random random = new Random();
         this.requestFocus();
         handler = new Handler();
         hud = new HUD();
         this.addKeyListener(new KeyInput(handler));
         new NomomWindow(WIDTH, HEIGHT, "Oh shit, here we go again...", this);
 
-        Random random = new Random();
-
-        handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player));
-        handler.addObject(new BasicMob(WIDTH/2 - 64, HEIGHT/2 - 64, ID.BasicMob));
+        handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player, handler));
+        for(int i = 0; i < 10; i++) {
+            //handler.addObject(new BasicMob(WIDTH/2 - 64, HEIGHT/2 - 64, ID.BasicMob));
+            handler.addObject(new BasicMob(random.nextInt(WIDTH), random.nextInt(HEIGHT), ID.BasicMob));
+        }
     }
 
     public static void main(String[] args) {

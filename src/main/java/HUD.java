@@ -1,5 +1,3 @@
-import jdk.vm.ci.hotspot.HotSpotVMEventListener;
-
 import java.awt.*;
 import java.util.HashMap;
 
@@ -17,6 +15,6 @@ public class HUD {
         g.setColor(Color.green);
         g.fillRect(15, 15, HEALTH * 2, 32);
         g.setColor(Color.white);
-        g.drawRect(15, 15, HEALTH * 2, 32);
+        g.drawRect(15, 15, 200, 32);
     }
 }
