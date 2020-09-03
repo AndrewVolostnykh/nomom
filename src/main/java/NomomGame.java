@@ -22,9 +22,9 @@ public class NomomGame extends Canvas implements Runnable {
         new NomomWindow(WIDTH, HEIGHT, "Oh shit, here we go again...", this);
 
         handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player, handler));
-        for(int i = 0; i < 10; i++) {
+        for(int i = 0; i < 6; i++) {
             //handler.addObject(new BasicMob(WIDTH/2 - 64, HEIGHT/2 - 64, ID.BasicMob));
-            handler.addObject(new BasicMob(random.nextInt(WIDTH), random.nextInt(HEIGHT), ID.BasicMob));
+            handler.addObject(new BasicMob(random.nextInt(WIDTH/2), random.nextInt(HEIGHT/2), ID.BasicMob));
         }
     }
 

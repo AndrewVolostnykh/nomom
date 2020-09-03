@@ -1,3 +1,5 @@
+import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
+
 import java.awt.*;
 import java.util.Random;
 
@@ -27,7 +29,9 @@ public class Player extends NomomObject {
 
             if(tempObject.getId() == ID.BasicMob) {
                 if(getBounds().intersects(tempObject.getBounds())) {
-                    HUD.HEALTH -= 2;
+                    if( tempObject instanceof BasicMob && ((BasicMob) tempObject).getIsAggressive()) {
+                        HUD.HEALTH -= 2;
+                    }
                 }
             }
 
