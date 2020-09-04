@@ -40,12 +40,6 @@ public class Player extends NomomObject {
 
     @Override
     public void render(Graphics g) {
-
-        Graphics2D g2d = (Graphics2D) g;
-
-        g.setColor(Color.red);
-        g2d.draw(getBounds());
-
         g.setColor(Color.white);
         g.fillRect(x, y, 24, 24);
     }
