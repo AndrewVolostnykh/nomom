@@ -21,10 +21,13 @@ public class NomomGame extends Canvas implements Runnable {
         this.addKeyListener(new KeyInput(handler));
         new NomomWindow(WIDTH, HEIGHT, "Oh shit, here we go again...", this);
 
-        handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player, handler));
-        for(int i = 0; i < 6; i++) {
-            //handler.addObject(new BasicMob(WIDTH/2 - 64, HEIGHT/2 - 64, ID.BasicMob));
+        handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player, handler)); // create player
+        for(int i = 0; i < 6; i++) { // create mobs
             handler.addObject(new BasicMob(random.nextInt(WIDTH/2), random.nextInt(HEIGHT/2), ID.BasicMob));
+        }
+
+        for(int i = 0; i < 4; i++) { // create craft materials
+            handler.addObject(new StickItem(random.nextInt(WIDTH - 45), random.nextInt(HEIGHT - 45), ID.StickItem));
         }
     }
 

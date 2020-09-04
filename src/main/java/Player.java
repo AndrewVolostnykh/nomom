@@ -47,10 +47,31 @@ public class Player extends NomomObject {
         g2d.draw(getBounds());
 
         g.setColor(Color.white);
-        g.fillRect(x, y, 32, 32);
+        g.fillRect(x, y, 24, 24);
     }
 
     public Rectangle getBounds() {
-        return new Rectangle(x, y, 32, 32);
+        return new Rectangle(x, y, 24, 24);
+    }
+
+    public void pickElement() {
+        for(int i = 0; i < handler.objects.size(); i++) {
+            NomomObject tempObject = handler.objects.get(i);
+
+            if(tempObject.getId() == ID.StickItem) {
+                if(getBounds().intersects(tempObject.getBounds())) {
+                    ((StickItem) tempObject).pickElement(this);
+                }
+            }
+        }
+    }
+
+    public void dropElement() {
+        for(int i = 0; i < handler.objects.size(); i++) {
+            NomomObject tempObject = handler.objects.get(i);
+
+            if(tempObject.getId() == ID.StickItem)
+                ((StickItem) tempObject).dropElement();
+        }
     }
 }

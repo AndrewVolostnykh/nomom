@@ -12,7 +12,7 @@ public class KeyInput extends KeyAdapter {
     public void keyPressed(KeyEvent e) {
         int key = e.getKeyCode();
 
-        for(int i = 0; i < handler.objects.size(); i++) {
+        for(int i = 0; i < handler.objects.size(); i++) { // can this be optimized ?
             NomomObject tempObject = handler.objects.get(i);
 
             if(tempObject.getId() == ID.Player) {
@@ -20,6 +20,14 @@ public class KeyInput extends KeyAdapter {
                 if(key == KeyEvent.VK_S) tempObject.setVelY(5);
                 if(key == KeyEvent.VK_D) tempObject.setVelX(5);
                 if(key == KeyEvent.VK_A) tempObject.setVelX(-5);
+
+                if(tempObject instanceof Player)
+                    if(key == KeyEvent.VK_C)
+                        ((Player) tempObject).pickElement();
+
+                if(tempObject instanceof Player)
+                    if(key == KeyEvent.VK_E)
+                        ((Player) tempObject).dropElement();
 
             }
         }
@@ -30,7 +38,7 @@ public class KeyInput extends KeyAdapter {
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
 
-        for(int i = 0; i < handler.objects.size(); i++) {
+        for(int i = 0; i < handler.objects.size(); i++) { // can this be optimized ?
             NomomObject tempObject = handler.objects.get(i);
 
             if(tempObject.getId() == ID.Player) {
